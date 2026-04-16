@@ -38,6 +38,7 @@ class WelcomeScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: AppColors.background,
       body: Stack(
         children: [
           const _FloatingShapes(),
@@ -95,6 +96,7 @@ class WelcomeScreen extends StatelessWidget {
                     Theme.of(context).textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                       height: 1.4,
+                      color: AppColors.onSurface,
                     ),
                   ),
 
@@ -171,7 +173,7 @@ class _FloatingShapesState extends State<_FloatingShapes>
                   (screen.height * 0.2) +
                   screen.height * 0.4,
               child: Opacity(
-                opacity: 0.06,
+                opacity: 0.15,
                 child: Container(
                   height: size,
                   width: size,

@@ -1,8 +1,6 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../dashboard.dart';
+import '../bottom_nav_screen.dart';
 
 class BuildingPlanScreen extends StatefulWidget {
   const BuildingPlanScreen({super.key});
@@ -71,7 +69,7 @@ class _BuildingPlanScreenState extends State<BuildingPlanScreen>
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const DashboardScreen(),
+          builder: (context) => const BottomNavScreen(),
         ),
       );
     });
@@ -130,7 +128,7 @@ class _BuildingPlanScreenState extends State<BuildingPlanScreen>
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.blueAccent.withOpacity(0.6),
+                          color: Colors.blueAccent.withValues(alpha: 0.6),
                           blurRadius: 40,
                           spreadRadius: 5,
                         )
@@ -178,10 +176,10 @@ class _BuildingPlanScreenState extends State<BuildingPlanScreen>
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 16),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
+                      color: Colors.white.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white.withValues(alpha: 0.2),
                       ),
                     ),
                     child: Text(
@@ -211,7 +209,7 @@ class _BuildingPlanScreenState extends State<BuildingPlanScreen>
                             value: _progressController.value,
                             strokeWidth: 6,
                             backgroundColor:
-                            Colors.white.withOpacity(0.1),
+                            Colors.white.withValues(alpha: 0.1),
                             valueColor:
                             const AlwaysStoppedAnimation<Color>(
                                 Colors.cyanAccent),

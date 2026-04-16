@@ -70,6 +70,7 @@ class _NationalitySelectionScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: FadeTransition(
           opacity: _entryController,
@@ -98,13 +99,16 @@ class _NationalitySelectionScreenState
 
                   const SizedBox(height: 30),
 
-                  Text(
-                    "Your Nationality?",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineMedium
-                        ?.copyWith(fontWeight: FontWeight.bold),
-                  ),
+                    Text(
+                      "Your Nationality?",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium
+                          ?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.onSurface,
+                      ),
+                    ),
 
                   const SizedBox(height: 10),
 
@@ -160,9 +164,11 @@ class _NationalitySelectionScreenState
                         decoration: InputDecoration(
                           labelText: "Select State",
                           filled: true,
-                          fillColor: Colors.white,
+                          fillColor: AppColors.surfaceContainerHigh,
+                          labelStyle: const TextStyle(color: AppColors.onSurfaceVariant),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(24),
+                            borderSide: const BorderSide(color: AppColors.outlineVariant),
                           ),
                         ),
                       ),
@@ -202,14 +208,8 @@ class _NationalitySelectionScreenState
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           gradient: isSelected ? AppColors.primaryGradient : null,
-          color: isSelected ? null : Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.06),
-              blurRadius: 15,
-              offset: const Offset(0, 8),
-            )
-          ],
+          color: isSelected ? null : AppColors.surfaceContainerHigh,
+          border: isSelected ? null : Border.all(color: AppColors.outlineVariant.withOpacity(0.1)),
         ),
         child: Row(
           children: [
@@ -225,7 +225,7 @@ class _NationalitySelectionScreenState
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: isSelected ? Colors.white : Colors.black,
+                  color: isSelected ? AppColors.onPrimaryFixed : AppColors.onSurface,
                 ),
               ),
             ),

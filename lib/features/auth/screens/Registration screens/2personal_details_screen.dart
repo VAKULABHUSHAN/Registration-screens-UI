@@ -78,16 +78,7 @@ class _PersonalDetailsScreenState
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xFFF8FAFC),
-                Color(0xFFEFF3F8),
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
+          color: AppColors.background,
           child: SafeArea(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -148,7 +139,7 @@ class _PersonalDetailsScreenState
                           style: TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF1E293B),
+                            color: AppColors.onSurface,
                           ),
                         ),
                       ),
@@ -159,7 +150,7 @@ class _PersonalDetailsScreenState
                     const Text(
                       "Let’s start with your basic details",
                       style: TextStyle(
-                        color: Color(0xFF64748B),
+                        color: AppColors.onSurfaceVariant,
                       ),
                     ),
 
@@ -169,15 +160,9 @@ class _PersonalDetailsScreenState
                     Container(
                       padding: const EdgeInsets.all(24),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: AppColors.surfaceContainerHigh,
                         borderRadius: BorderRadius.circular(28),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
-                            blurRadius: 30,
-                            offset: const Offset(0, 10),
-                          )
-                        ],
+                        border: Border.all(color: AppColors.outlineVariant.withOpacity(0.1)),
                       ),
                       child: Column(
                         children: [
@@ -185,7 +170,7 @@ class _PersonalDetailsScreenState
                           AnimatedTextField(
                             hint: "Full Name",
                             controller: controller.fullNameController,
-                            textColor: const Color(0xFF1E293B),
+                            textColor: AppColors.onSurface,
                             validator: (value) =>
                             value!.isEmpty
                                 ? "Enter your name"
@@ -197,7 +182,7 @@ class _PersonalDetailsScreenState
                           AnimatedTextField(
                             hint: "Email Address",
                             controller: controller.emailController,
-                            textColor: const Color(0xFF1E293B),
+                            textColor: AppColors.onSurface,
                             validator: (value) {
                               if (value == null ||
                                   !value.contains("@")) {
@@ -213,7 +198,7 @@ class _PersonalDetailsScreenState
                             hint: "Password",
                             controller:
                             controller.passwordController,
-                            textColor: const Color(0xFF1E293B),
+                            textColor: AppColors.onSurface,
                             obscureText:
                             !controller.isPasswordVisible.value,
                             suffix: IconButton(
